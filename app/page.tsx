@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 
 import { prisma } from "./lib/prisma";
 
-export const instant = false;
+export const dynamic = "force-dynamic";
 
 async function createUser(formData: FormData) {
   "use server";
