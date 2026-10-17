@@ -16,6 +16,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Tester Prisma et MySQL
+
+Le projet utilise Prisma 7 avec MySQL. Configure `DATABASE_URL` dans `.env` avec
+les caractères spéciaux du mot de passe encodés (`@` devient `%40`), puis
+synchronise le schéma :
+
+```bash
+npx prisma db push --config .\prisma.config.ts
+npx prisma generate --config .\prisma.config.ts
+npm run dev
+```
+
+La page d'accueil permet ensuite d'ajouter des utilisateurs simples et affiche
+ceux qui sont réellement enregistrés dans la table `User`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
